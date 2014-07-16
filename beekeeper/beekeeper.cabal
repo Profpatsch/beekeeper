@@ -20,6 +20,10 @@ library
                      Settings.StaticFiles
                      Settings.Development
                      Handler.Home
+                     Handler.BeeList
+                     Handler.ChainList
+                     Handler.Bee
+                     Handler.Chain
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

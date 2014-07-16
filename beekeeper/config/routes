@@ -5,3 +5,7 @@
 /robots.txt RobotsR GET
 
 / HomeR GET POST
+/bees BeeListR GET
+/chains ChainListR GET
+/bee/#Text BeeR GET
+/chain/#Text ChainR GET
