@@ -14,6 +14,17 @@ import qualified Data.ByteString.Lazy.Char8 as BL
 
 data Config = Config [Bee] [Chain] deriving (Show)
 
+testConfig :: FilePath -> IO ()
+testConfig cfg = do
+  config <- parseConfig cfg
+  print config
+  BL.putStrLn $ encode config
+
+parseConfig :: FilePath -> IO Config
+parseConfig cfg = do
+  contents <- B.readFile cfg
+  either error return $ eitherDecodeStrict contents
+
 instance FromJSON Config where
   parseJSON (Object v) = Config
                        <$> v .: "Bees"
@@ -29,16 +40,11 @@ data Bee = Bee { beeName :: Text
                , beeOptions :: [Option]
                , beeDescription :: Text } deriving (Show)
 
-testConfig :: FilePath -> IO ()
-testConfig cfg = do
-  config <- parseConfig cfg
-  print config
-  BL.putStrLn $ encode config
-
-parseConfig :: FilePath -> IO Config
-parseConfig cfg = do
-  contents <- B.readFile cfg
-  either error return $ eitherDecodeStrict contents
+defaultBee :: Bee
+defaultBee = Bee { beeName = "Default"
+          , beeKind = "default-class"
+          , beeOptions = []
+          , beeDescription = "Default Description"}
 
 instance FromJSON Bee where
   parseJSON (Object v) = Bee
