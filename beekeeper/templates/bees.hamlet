@@ -1,0 +1,12 @@
+<div .row>
+  $if null bees
+    <p>No bees in use.
+  $else
+    $forall bee <- bees
+      <section .col-md-6>
+        <header>
+          <h1>#{beeName bee}
+          <h2>#{beeKind bee}
+        <p>#{beeDescription bee}
+      <!-- <div .col-md-4> -->
+      <!--   <p>Hello! -->
