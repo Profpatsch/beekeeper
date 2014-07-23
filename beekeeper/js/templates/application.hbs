@@ -1,10 +1,10 @@
-<h1>Ember App</h1>
+<div class="container">
+    <nav>
+      <ul class="nav nav-tabs" role="tablist">
+        {{#linkTo "bees" tagName="li"}}<a {{bind-attr href="view.href"}}>Bees</a>{{/linkTo}}
+        {{#linkTo "chains" tagName="li"}}<a {{bind-attr href="view.href"}}>Chains</a>{{/linkTo}}
+      </ul>
+    </nav>
 
-<nav>
-  <ul class="nav nav-tabs" role="tablist">
-    {{#linkTo "bees" tagName="li"}}<a {{bind-attr href="view.href"}}>Bees</a>{{/linkTo}}
-    {{#linkTo "chains" tagName="li"}}<a {{bind-attr href="view.href"}}>Chains</a>{{/linkTo}}
-  </ul>
-</nav>
-
-{{outlet}}
+    {{outlet}}
+</div>

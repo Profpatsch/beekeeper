@@ -118,7 +118,7 @@ function program3(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<h1>Ember App</h1>\n\n<nav>\n  <ul class=\"nav nav-tabs\" role=\"tablist\">\n    ");
+  data.buffer.push("<div class=\"container\">\n    <nav>\n      <ul class=\"nav nav-tabs\" role=\"tablist\">\n        ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -126,7 +126,7 @@ function program3(depth0,data) {
   },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "bees", options) : helperMissing.call(depth0, "linkTo", "bees", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n    ");
+  data.buffer.push("\n        ");
   hashContexts = {'tagName': depth0};
   hashTypes = {'tagName': "STRING"};
   options = {hash:{
@@ -134,10 +134,11 @@ function program3(depth0,data) {
   },inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "chains", options) : helperMissing.call(depth0, "linkTo", "chains", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n  </ul>\n</nav>\n\n");
+  data.buffer.push("\n      </ul>\n    </nav>\n\n    ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n</div>");
   return buffer;
   
 });
