@@ -1,2 +1,17 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-js/application.js
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/vendor/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
