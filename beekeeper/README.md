@@ -33,8 +33,8 @@ System wide or local:
   1. Add a user folder to your PATH, e.g. `~/bin`
   2. Syslink every executable manually. Example:
 
-      cd ~/bin
-      ln -s ~/node_modules/ember-cli/bin/ember
+      <code>cd ~/bin
+      ln -s ~/node_modules/ember-cli/bin/ember</code>
 
 ### Bootstrap &al.
 
@@ -48,12 +48,14 @@ They are thrown inside the `vendor/` folder and NOT checked into git.
 ## Jerking around
 
 If you want to learn ember, use the excellent [Guide](ember).
+
 The project structure is described at the [ember-cli homepage][cli]. It changes lots about how you write ember, too, since it integrates an EcmaScript 6 transpiler. Read it.
 
 
 ## Beehive config route endpoints
 
 Ember needs unique object IDs for its persistence backend.
+
 One wants to model the beehive config REST endpoints in a way [DS.RESTAdapter][restadapter] can parse it. That includes said object ID, think relational database tables.
 
 
@@ -67,5 +69,6 @@ One wants to model the beehive config REST endpoints in a way [DS.RESTAdapter][r
 
 [ember]: http://emberjs.com
 [cli]: http://www.ember-cli.com/
+[bs]: http://getbootstrap.com/
 [restadapter]: http://emberjs.com/api/data/classes/DS.RESTAdapter.html
 [emberscr]: http://emberscript.com/
