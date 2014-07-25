@@ -1,0 +1,21 @@
+<!-- TODO: Somehow extract into default template and get the .active right -->
+<nav>
+  <ul .nav .nav-tabs role="tablist">
+    <li .active>
+      <a href=@{BeeListR}>Bees
+    <li>
+      <a href=@{ChainListR}>Chains
+<div .row>
+  $if null bees
+    <p .well>No bees in use.
+  $else
+    $forall bee <- bees
+      <section .col-md-4>
+        <div .panel .panel-default >
+          <header .panel-heading >
+            <h1 .panel-title >#{beeName bee}
+          <div .panel-body >
+            <code>#{beeKind bee}
+            <p>#{beeDescription bee}
+      <!-- <div .col-md-4> -->
+      <!--   <p>Hello! -->

@@ -1,0 +1,19 @@
+<div class="row">
+    {{#if length}}
+        {{#each bee in controller}}
+            <section class="col-md-4">
+                <div class="panel panel-default">
+                    <header class="panel-heading">
+                        <h1 class="panel-title">{{bee.name}}</h1>
+                    </header>
+                    <div class="panel-body">
+                        <code>{{bee.class}}</code>
+                        <p>{{bee.description}}</p>
+                    </div>
+                </div>
+            </section>
+        {{/each}}
+    {{else}}
+        <p class="well">No bees in use.</p>
+    {{/if}}
+</div>

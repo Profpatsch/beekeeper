@@ -1,30 +1,17 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Folders
-_obj
-_test
+# compiled output
+/dist
+/tmp
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# dependencies
+/node_modules
+/vendor/*
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
-
-_testmain.go
-
-*.exe
-*.test
-
-*~
-beehive
-beehive.conf
-
-# Texteditor-specific stuff
-.*.sw*
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log

@@ -1,0 +1,19 @@
+<!-- TODO: See bees.hamlet -->
+<nav>
+  <ul .nav .nav-tabs role="tablist">
+    <li>
+      <a href=@{BeeListR}>Bees
+    <li .active>
+      <a href=@{ChainListR}>Chains
+<div .row>
+  $if null chains
+    <p .well>No chains in use.
+  $else
+    $forall chain <- chains
+      <section .col-md-4>
+        <!-- <div .panel .panel-default > -->
+        <!--   <header .panel-heading > -->
+        <!--     <h1 .panel-title >#{beeName bee} -->
+        <!--   <div .panel-body > -->
+        <!--     <code>#{beeKind bee} -->
+        <!--     <p>#{beeDescription bee} -->

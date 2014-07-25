@@ -1,44 +1,74 @@
-beehive
-=======
+# Beekeeper
 
-beehive is a flexible event system, which allows you to create your own action-
-chains and filters. It is modular and easy to extend - for anyone. It can be
-your IRC bot, it can activate your heating system or make you a cup of coffee.
-Yes, finally!
+## Tools
 
-## Installation
+I’ve taken some time to evaluate the various choices and arrived at the following tooling:
 
-Make sure you have a working Go environment. See the [install instructions](http://golang.org/doc/install.html).
+- [Ember.js][ember] as single-page MVC-framework
+- [ember-cli][cli] as work environment
+- [Bootstrap][bs] as CSSbase
 
-First we need to get the required dependencies. beehive itself is part of that
-list so the main executable can depend on our sub-packages:
+I’ve looked into [Emberscript][emberscr], but it sadly doesn’t yet integrate with ember-cli very well (/at all?).
 
-    go get github.com/fluffle/goirc/client
-    go get github.com/mattn/go-xmpp
-    go get github.com/jteeuwen/go-pkg-rss
-    go get github.com/guelfey/go.dbus
-    go get github.com/hoisie/web
-    go get github.com/huin/goserial
-    go get github.com/muesli/beehive
+## Setup
 
-Now we can build beehive:
+1. Clone the repo
+2. `git checkout beekeeper`
+3. Install ember-cli & dependencies (see below)
+4. Install project dependencies
+5. Run `ember server` & visit [http://localhost:4200]()
 
-    git clone git://github.com/muesli/beehive.git
-    cd beehive
-    go build
+### ember-cli Installation
 
-Run beehive -help to see a full list of options!
+npm packets:
 
-## Configuration
+    ember-cli
+    bower
+    phantomjs
 
-To be written by someone! :-)
+System wide or local:
 
-Until then you can find a [few chain recipes here](https://github.com/muesli/beehive/tree/master/recipes).
-Pick one, edit it to your needs and store it as 'beehive.conf'. beehive looks for this
-configuration file in its current working directory.
+- System wide via `sudo npm install -g` (do I want this?!)
+- Locally with `npm install`
+  1. Add a user folder to your PATH, e.g. `~/bin`
+  2. Syslink every executable manually. Example:
 
-## Development
+      <code>cd ~/bin
+      ln -s ~/node_modules/ember-cli/bin/ember</code>
 
-API docs can be found [here](http://godoc.org/github.com/muesli/beehive).
+### Bootstrap &al.
 
-Continuous integration: [![Build Status](https://secure.travis-ci.org/muesli/beehive.png)](http://travis-ci.org/muesli/beehive)
+Install the projects dependencies (that’s what bower is for): IN `<beehive_dir>/beekeeper` execute:
+
+    bower install
+
+They are thrown inside the `vendor/` folder and NOT checked into git.
+
+
+## Jerking around
+
+If you want to learn ember, use the excellent [Guide](ember).
+
+The project structure is described at the [ember-cli homepage][cli]. It changes lots about how you write ember, too, since it integrates an EcmaScript 6 transpiler. Read it.
+
+
+## Beehive config route endpoints
+
+Ember needs unique object IDs for its persistence backend.
+
+One wants to model the beehive config REST endpoints in a way [DS.RESTAdapter][restadapter] can parse it. That includes said object ID, think relational database tables.
+
+
+## Next steps
+
+1. Create a REST config API in beehive and connect it to embers store & model via [DS.RESTAdapter][restadapter]
+2. Let the user see available configurated bees & create new ones
+3. Let the user see routes and create new ones in style of ifttt.
+4. Somehow integrate filters in the process (new filter system?)
+5. Export the changes to beehive and let beehive test if they are valid.
+
+[ember]: http://emberjs.com
+[cli]: http://www.ember-cli.com/
+[bs]: http://getbootstrap.com/
+[restadapter]: http://emberjs.com/api/data/classes/DS.RESTAdapter.html
+[emberscr]: http://emberscript.com/
